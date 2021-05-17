@@ -1,0 +1,7 @@
+npm install:
+
+1. google-map-react
+
+2. @material-ui/core
+
+3. axios

@@ -1,0 +1,15 @@
+{
+	"country": "US",
+        "province": "Alabama",
+        "county": "Autauga",
+        "updatedAt": "2021-05-17 04:20:34",
+        "stats": {
+            "confirmed": 7005,
+            "deaths": 108,
+            "recovered": null
+        },
+        "coordinates": {
+            "latitude": "32.53952745",
+            "longitude": "-86.64408227"
+        }
+}
