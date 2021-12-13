@@ -38,8 +38,7 @@ export default class Map extends React.Component {
       <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
           // Fill in your personal Google Map API Key below:
-          // bootstrapURLKeys={{ key: 'AIzaSyAHQeGX9rhyXdlxXR58OgXnOjGhxduUEAc' }}
-          bootstrapURLKeys={{ key: 'AIzaSyB5AWwMnWoRi-AFbfcTBE080pqH6vJak5Y' }}
+          bootstrapURLKeys={{ key: '' }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
           onChange={(changeObject) => {
