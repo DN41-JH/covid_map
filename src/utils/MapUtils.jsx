@@ -3,18 +3,18 @@ export const MapUtils = {
         // "points" is the data obtained from XHR request from 'https://corona.lmao.ninja/v2/jhucsse/counties'
         // "points" is represented as a list of objects, in which each object contains the county-level data as:
         // {"country":<str>, "province":<str>, "county":<str>, "stats":{"confirmed":<int>, "deaths":<int>, "recovered":<int>}, 
-        // "coordinates":{"latitude":<str>, "longitude":<str>}}
+        //      "coordinates":{"latitude":<str>, "longitude":<str>}}
 
         if (!points) {
-            return {};
+            return null;
         }
 
         const states_data = {
-            type: 'states',
+            type: 'state',
         };
 
         const nations_data = {
-            type: 'nations',
+            type: 'nation',
         };
 
         // Data organization and synthesis process (perform province-level and nation-level aggrevation):
@@ -57,21 +57,19 @@ export const MapUtils = {
             nations_data[point.country].coordinates = states_data[point.country].coordinates || point.coordinates;
         }
 
-
-
-        const result = {};
+        let result = {};
         let zoom_level = 1; // zoom level
         // zoom level in [1, 4]: natino level
         // zoom level in [5, 9]: state level
         // zoom level in [10, 20]: county level
 
-        for (; zoom_level<=4; zoom_level++) {
+        for (; zoom_level <= 4; zoom_level++) {
             result[zoom_level] = nations_data;
         };
-        for (; zoom_level<=9; zoom_level++) {
+        for (; zoom_level <= 9; zoom_level++) {
             result[zoom_level] = states_data;
         };
-        for (; zoom_level<=20; zoom_level++) {
+        for (; zoom_level <= 20; zoom_level++) {
             result[zoom_level] = points;
         };
 

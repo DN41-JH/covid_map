@@ -39,7 +39,7 @@ export default function CountyCard(props) {
           Deaths: {props.stats.deaths}
         </Typography>
         <Typography variant="body2" component="p">
-          Recovered: {props.stats.recovered}
+          Recovered: {props.stats.recovered ? props.stats.recovered : "Unavailable"}
         </Typography>
       </CardContent>
     </Card>

@@ -30,14 +30,16 @@ export default class Map extends React.Component {
   }
  
   render() {
-    // console.log(this.state.zoom, this.state.boundary)
-    console.log(this.state.points)
+    console.log(this.state.zoom, this.state.boundary);
+    // console.log(this.state.points);
+
     return (
       // Important! Always set the container height explicitly
       <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
           // Fill in your personal Google Map API Key below:
-          bootstrapURLKeys={{ key: '' }}
+          // bootstrapURLKeys={{ key: 'AIzaSyAHQeGX9rhyXdlxXR58OgXnOjGhxduUEAc' }}
+          bootstrapURLKeys={{ key: 'AIzaSyB5AWwMnWoRi-AFbfcTBE080pqH6vJak5Y' }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
           onChange={(changeObject) => {
@@ -49,7 +51,7 @@ export default class Map extends React.Component {
           }}
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={({ map, maps }) => {
-              // 1. Call backend API to get data (XHR)
+              // 1. Call axios API to get data (XHR)
               // 2. setState() to change the state
               MapService.getUSCovidData()
                 .then(response => {
@@ -79,6 +81,9 @@ export default class Map extends React.Component {
         return result;
     }
 
+    console.log(this.state.zoom);
+    console.log(points);
+
     // render counties
     if (Array.isArray(points)) {
         for (const county of points) {
@@ -100,7 +105,7 @@ export default class Map extends React.Component {
     }
 
     // render states
-    if (points.type === 'states') {
+    if (points.type === 'state') {
         for (const nation in points) {
             for (const state in points[nation]) {
                 if (!MapUtils.isInBoundary(this.state.boundary, points[nation][state].coordinates)) {
@@ -121,7 +126,7 @@ export default class Map extends React.Component {
     }
 
     // homework: render nations
-    if (points.type === 'nations') {
+    if (points.type === 'nation') {
         for (const nation in points) {
             if (!MapUtils.isInBoundary(this.state.boundary, points[nation].coordinates)) {
                 continue;

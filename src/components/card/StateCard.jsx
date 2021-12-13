@@ -39,7 +39,7 @@ export default function StateCard(props) {
           Deaths: {props.deaths}
         </Typography>
         <Typography variant="body2" component="p">
-          Recovered: {props.recovered}
+          Recovered: {props.recovered ? props.recovered : "Unavailable"}
         </Typography>
       </CardContent>
     </Card>
