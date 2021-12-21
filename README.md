@@ -1,3 +1,6 @@
+# About the Project
+The COVID-19 real time map help us visualize the up-to-date world COVID-19 status data of each country, based on the Google Map React component that enables a set of Google Map APIs. Depending on the user's visual scope on the map, I render the COVID-19 data on different administrative levels. This project adopts Asynchronous JavasSript & XML (AJAX) to dynamically load and render data to ensure a smooth user experience and visualization effects. Data aggregations into state- and country- levels are performed to render the data of desired scope depending on the user's real-time visual scope on the map.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
